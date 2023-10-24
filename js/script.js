@@ -27,6 +27,10 @@ document.querySelector(".next").addEventListener("click", function(){
         activeImmagine[activeImmagineIndex].classList.remove("active");
         activeImmagineIndex++;
         activeImmagine[activeImmagineIndex].classList.add("active")
+    } else if (activeImmagineIndex === activeImmagine.length - 1) {
+        activeImmagine[activeImmagineIndex].classList.remove("active");
+        activeImmagineIndex = 0;
+        activeImmagine[activeImmagineIndex].classList.add("active")
     }
 })
 
@@ -34,6 +38,10 @@ document.querySelector(".prev").addEventListener("click", function(){
     if (activeImmagineIndex > 0) {
         activeImmagine[activeImmagineIndex].classList.remove("active");
         activeImmagineIndex--;
+        activeImmagine[activeImmagineIndex].classList.add("active")
+    } else if (activeImmagineIndex === 0) {
+        activeImmagine[activeImmagineIndex].classList.remove("active");
+        activeImmagineIndex = activeImmagine.length - 1;
         activeImmagine[activeImmagineIndex].classList.add("active")
     }
 })

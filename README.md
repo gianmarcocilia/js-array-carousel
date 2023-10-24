@@ -33,3 +33,10 @@ Al click sul pulsante bottom, mostrare l'immagine successiva
 
     2. Al click sulla freccia top:
     Se l'indexImmagine è maggiore di 0 tolgo la classe active dall'elemento visualizzato e decremento l'indice. Aggiungo la classe active al nuovo indice da visualizzare.
+
+**BONUS**
+- Imposto al click sulla freccia top: 
+    ALTRIMENTI SE l'indexImmagine è = a 0 tolgo la classe active dall'elemento visualizzato e imposto l'indice a lunghezzaArray - 1. Aggiungo la classe active al nuovo indice da visualizzare.
+
+- Imposto al click sulla freccia bottom:
+    ALTRIMENTI SE l'indexImmagine è = a lunghezzaArray - 1 tolgo la classe active dall'elemento visualizzato e imposto l'indice a 0. Aggiungo la classe active al nuovo indice da visualizzare.
