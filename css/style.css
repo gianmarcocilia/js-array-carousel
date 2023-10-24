@@ -36,6 +36,7 @@
 }
 
 .thumbs {
+    width: 200px;
     height: 300px;
     background: #000;
     position: relative;
