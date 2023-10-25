@@ -56,6 +56,12 @@
 .thumb.active {
     border: 2px solid #ccc;
     opacity: 1;
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    z-index: 1; */
 }
 
 .prev, .next {
@@ -106,3 +112,5 @@
     left: 50%;
     transform: translate(-50%) rotate(135deg);
 }
+
+/* PROVA ORDINE */
