@@ -13,6 +13,12 @@ Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, c
 **BONUS:**
 Aggiungere il **ciclo infinito** del carosello. Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
 
+**MILESTONE 3**
+Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l'immagine attiva dovrà cambiare alla successiva.
+
+**BONUS**
+All'hover del mouse autoplay si ferma, quando il mouse si sposta fuori dal carousel, l'autoplay riparte.
+
 ###Soluzione
 - Rimuovo il markup statico
 - Inserisco le immagini dinamicamente
@@ -40,3 +46,11 @@ Al click sul pulsante bottom, mostrare l'immagine successiva
 
 - Imposto al click sulla freccia bottom:
     ALTRIMENTI SE l'indexImmagine è = a lunghezzaArray - 1 tolgo la classe active dall'elemento visualizzato e imposto l'indice a 0. Aggiungo la classe active al nuovo indice da visualizzare.
+
+
+#### Svolgimento Milestone 3
+**LOGICA**
+- Imposto un setInterval iniziale per far partire lo slide delle pic all'apertura della pagina.
+- aggiungo un eventListener mouseenter al mio slider che mi vada a ad annullare il setInterval iniziale.
+- aggiungo eventListener mouseleave al mio slider che mi vada a far partire un nuovo setInterval.
+- implemento al mouseenter un secondo clearInterval per stoppare il setInterval che partirà al mouseleave.

@@ -31,30 +31,65 @@ let activeImmagineIndex = 0;
 activeThumb[activeImmagineIndex].classList.add("active");
 activeImmagine[activeImmagineIndex].classList.add("active");
 
-// Imposto le condizioni eventListner
-document.querySelector(".next").addEventListener("click", function () {
+// Imposto le condizioni eventListner per i 2 bottoni
+const nextBtn = document.querySelector(".next");
+nextBtn.addEventListener("click", nextPic);
 
+const prevBtn = document.querySelector(".prev");
+prevBtn.addEventListener("click", prevPic);
+
+
+// Imposto il setInterval per scorrere le foto automaticamente ogni 3 secondi
+// START
+const initialCarousel = setInterval(nextPic, 3000);
+console.clear();
+console.log("start");
+// Definisco una variabile di controllo
+let curInterval;
+// STOP
+slider.addEventListener("mouseenter", stopCarousel);
+// RESTART
+slider.addEventListener("mouseleave", restartCarousel);
+
+function restartCarousel() {
+    console.log(curInterval);
+    if (curInterval === undefined) {
+        console.log("restart");
+        curInterval = setInterval(nextPic, 3000);
+    }
+}
+  
+function stopCarousel() {
+    clearInterval(initialCarousel);
+    console.log("Pause");
+    clearInterval(curInterval);
+    curInterval = undefined;
+}
+
+/**
+ * Description: Creo una funzione che mi permetta di scorrere alla pic successiva ad ogni click sul bottone
+ * @returns {any}
+ */
+function nextPic () {
     activeImmagine[activeImmagineIndex].classList.remove("active");
     activeThumb[activeImmagineIndex].classList.remove("active");
-
     if (activeImmagineIndex < activeImmagine.length - 1) {
         activeImmagineIndex++;
-        } else  {
+    } else {
         activeImmagineIndex = 0;
     }
     activeImmagine[activeImmagineIndex].classList.add("active")
     activeThumb[activeImmagineIndex].classList.add("active");
-})
+}
 
-document.querySelector(".prev").addEventListener("click", function () {
+function prevPic () {
     activeImmagine[activeImmagineIndex].classList.remove("active");
-        activeThumb[activeImmagineIndex].classList.remove("active");
-    if (activeImmagineIndex > 0) { 
-        activeImmagineIndex--;     
+    activeThumb[activeImmagineIndex].classList.remove("active");
+    if (activeImmagineIndex > 0) {
+        activeImmagineIndex--;
     } else {
-        activeImmagineIndex = activeImmagine.length - 1;  
+        activeImmagineIndex = activeImmagine.length - 1;
     }
     activeThumb[activeImmagineIndex].classList.add("active");
     activeImmagine[activeImmagineIndex].classList.add("active");
-})
-
+}
